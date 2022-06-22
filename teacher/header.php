@@ -5,7 +5,7 @@ session_start();
 if(!isset($_SESSION['teacher_loggedin'])){
   header('location:login.php');
 }
-
+$photo = Teacher('photo',$_SESSION['teacher_loggedin'][0]['id']);
 ?>
 
 
@@ -46,19 +46,25 @@ if(!isset($_SESSION['teacher_loggedin'])){
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="../images/faces/face1.jpg" alt="image">
-                <span class="availability-status online"></span>             
+
+                <?php if($photo !=null):?>	
+                <img style="width:100%;height:100%;object-fit:cover;" src="<?php echo $photo ;?>">
+                <?php else :?>	
+                  <img src="../images/faces/face1.jpg" alt="image">
+                <?php endif;?>
+
+                <span class="availability-status online"></span>                  
+                
               </div>
               <div class="nav-profile-text">
                 <p class="mb-1 text-black"><?php echo $_SESSION['teacher_loggedin'][0]['name'];?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="#">
-                <i class="mdi mdi-settings mr-2 text-success"></i>
-               Settings
-              </a>  
-            
+              <a class="dropdown-item" href="profile.php">
+                <i class="mdi mdi-account mr-2 text-success"></i>
+               Profile
+              </a>                      
               <a class="dropdown-item" href="change-password.php">
                 <i class="mdi mdi-lock mr-2 text-success"></i>
                Change password
@@ -68,6 +74,10 @@ if(!isset($_SESSION['teacher_loggedin'])){
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Logout
               </a>
+              <a class="dropdown-item" href="#">
+                <i class="mdi mdi-settings mr-2 text-success"></i>
+               Settings
+              </a>  
             </div>
           </li>
           <li class="nav-item d-none d-lg-block full-screen-link">

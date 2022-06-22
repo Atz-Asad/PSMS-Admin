@@ -25,7 +25,7 @@ if(isset($_POST['login_btn'])){
       header("location:index.php");
     }
     else{
-      $error = "Mobile Number Or password id Wrong";
+      $error = "Mobile Number Or password is Wrong";
     }
   }
   
