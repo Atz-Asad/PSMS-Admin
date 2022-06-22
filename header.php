@@ -233,7 +233,7 @@ if(!isset($_SESSION['admin_loggedin'])){
             <div class="collapse" id="ui-2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Teachers</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Search</a></li>
+                <li class="nav-item"> <a class="nav-link" href="teacher-add-new.php">Add New</a></li>
               </ul>
             </div>
           </li>

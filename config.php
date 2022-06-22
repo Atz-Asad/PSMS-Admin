@@ -32,3 +32,20 @@ function Student($col,$id){
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
     return $result[0][$col];
 }
+
+// Count any Column Value from teachers Table
+function teacherCount($col,$val){
+    global $pdo;
+    $stm=$pdo->prepare("SELECT $col FROM teachers WHERE $col=?");
+    $stm->execute(array($val));
+    $count = $stm->rowCount();
+    return $count;
+}
+
+// function Teacher($col,$id){
+//     global $pdo;
+//     $stm=$pdo->prepare("SELECT $col FROM teachers WHERE id=?");
+//     $stm->execute(array($id));
+//     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+//     return $result[0][$col];
+// }
