@@ -29,5 +29,25 @@
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
+  <!-- data-table-ja -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.buttons.min.js"></script>
+  <script src="js/jszip.min.js"></script>
+  <script src="js/pdfmake.min.js"></script>
+  <script src="js/vfs_fonts.js"></script>
+  <script src="js/buttons.html5.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('#table_teacher_list').DataTable( {
+      "pageLength": 5,
+        dom: 'Bfrtip',
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'pdfHtml5'
+        ]
+    } );
+} );
+  </script>
 </body>
 </html>

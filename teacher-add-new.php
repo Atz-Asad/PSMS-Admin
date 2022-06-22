@@ -9,10 +9,7 @@ if(isset($_POST['create_btn'])){
     $t_address = $_POST['t_address'];
     $t_gender = $_POST['t_gender'];
     $t_password = $_POST['t_password'];
-
-
-    $admin_id = $_SESSION['admin_loggedin'][0]['id'];
-    
+ 
     // teachers mobile count
     $mobileCount = teacherCount('mobile',$t_mobile);
     // teachers email count

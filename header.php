@@ -16,6 +16,10 @@ if(!isset($_SESSION['admin_loggedin'])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Admin Deshbord</title>
+  
+  <!-- data table:css -->
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="css/buttons.dataTables.min.css">
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -232,7 +236,7 @@ if(!isset($_SESSION['admin_loggedin'])){
             </a>
             <div class="collapse" id="ui-2">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Teachers</a></li>
+                <li class="nav-item"> <a class="nav-link" href="teacher-all.php">All Teachers</a></li>
                 <li class="nav-item"> <a class="nav-link" href="teacher-add-new.php">Add New</a></li>
               </ul>
             </div>
