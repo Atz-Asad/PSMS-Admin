@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('../config.php');
 session_start();
 
 if(isset($_POST['login_btn'])){
@@ -14,23 +14,23 @@ if(isset($_POST['login_btn'])){
     $error = "Password is Required";
   }
   else{
-    $stm = $pdo->prepare("SELECT * FROM admin WHERE username=? AND password=?");
+    $stm = $pdo->prepare("SELECT id,mobile,password,name FROM teachers WHERE mobile=? AND password=?");
     $stm->execute(array($username,SHA1($password)));
-    $admincount = $stm->rowCount();
+    $teacherCount = $stm->rowCount();
 
-    if($admincount == 1){
-      $adminData = $stm->fetchAll(PDO::FETCH_ASSOC);
-      $_SESSION['admin_loggedin'] = $adminData;
+    if($teacherCount == 1){
+      $teacherData = $stm->fetchAll(PDO::FETCH_ASSOC);
+      $_SESSION['teacher_loggedin'] = $teacherData;
 
       header("location:index.php");
     }
     else{
-      $error = "Username Or password id Wrong";
+      $error = "Mobile Number Or password id Wrong";
     }
   }
   
 }
-if(isset($_SESSION['admin_loggedin'])){
+if(isset($_SESSION['teacher_loggedin'])){
   header('location:index.php');
 }
 
@@ -41,17 +41,17 @@ if(isset($_SESSION['admin_loggedin'])){
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
+  <title>Teacher Login</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -61,7 +61,7 @@ if(isset($_SESSION['admin_loggedin'])){
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left p-5">
               <div class="brand-logo">
-                <h2 class="text-center">Admin Login</h2>
+                <h2 class="text-center">Teacher Login</h2>
               </div>
               <?php if(isset($error)):?>
                 <div class="alert alert-danger">
@@ -70,14 +70,14 @@ if(isset($_SESSION['admin_loggedin'])){
               <?php endif;?>
 
               <?php if(isset($success)):?>
-                <div class="alert alert-danger">
+                <div class="alert alert-danger"> 
                   <?php echo $success;?>
                 </div>
               <?php endif;?>
 
               <form class="pt-3" method="POST" action="">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" name="username" placeholder="Username">
+                  <input type="text" class="form-control form-control-lg" name="username" placeholder="Teacher Mobile">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
@@ -96,12 +96,12 @@ if(isset($_SESSION['admin_loggedin'])){
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <script src="../vendors/js/vendor.bundle.base.js"></script>
+  <script src="../vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/misc.js"></script>
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/misc.js"></script>
   <!-- endinject -->
 </body>
 </html>
