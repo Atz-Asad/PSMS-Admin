@@ -76,7 +76,7 @@
                             
                             <td>
                                 <?php if($photo !=null):?>
-                                    <img style="width:auto;height:100px;" src="<?php echo $photo ;?>">
+                                    <img style="width:100px;height:100px;border-radius:0;" src="<?php echo $photo ;?>">
                                 <?php else :?>
                                     <img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32">
                                 <?php endif;?>
