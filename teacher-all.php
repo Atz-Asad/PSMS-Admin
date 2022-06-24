@@ -41,8 +41,8 @@ require_once('header.php');
                             <td><?php echo $teacher['mobile'];?></td>   
                             <td><?php echo $teacher['gender'];?></td>   
                             <td>
-                                <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit"></i></a>&nbsp;
-                                <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
+                                <a href="" title="edit" class="btn btn-sm btn-warning"><i class="mdi mdi-table-edit"></i></a>&nbsp;
+                                <a href="" title="delate"  class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i></a>
                             </td>   
                         </tr>
                         <?php endforeach;?>
